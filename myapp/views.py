@@ -185,8 +185,7 @@ def get_paramers(request):
     b = homeregional
     return a
 	
-def getshouye(request):
-    a = get_paramers(request)
+def getshouye(request,a):
     dataf = pd.read_sql('select * from t_regional_hour_flow where date = "'+a+'"',conn_SY)
     contextf1 = int(dataf[dataf.columns[3:]].mean().sum())
     contextf = [a,contextf1]
@@ -199,18 +198,26 @@ def getshouye(request):
     contextc1 = round(datac[datac.columns[3:]].mean().mean(),2)
     contextc = [a,contextc1]
  
-    return a,contextf,contexts,contextc
+    return {'code':200,'msg':'success!','data':[a,contextf,contexts,contextc]}
 
 def getshouyes(request):
-    import json
-    shouyes = getshouye(request)
-    return  HttpResponse(json.dumps(shouyes), content_type='application/json')
+    try:
+        homedate = request.GET.get("date",'')
+        a = homedate[:8]+homedate[9] #构造前端传来的日期格式
+        import json
+        shouyes = getshouye(request,a)
+        return  HttpResponse(json.dumps(shouyes), content_type='application/json')
+    except Exception as e:
+        print(e)
+        return HttpResponse('参数错误!')
 
 def getShouyeData(request):
     return render(request,'index.html')	
 	
+
+
 	
-#############################################################################################################################################
+#########报告接口##报告接口#####报告接口########报告接口####报告接口#################################################################################################################
     
 #新添加的用于报表的文件
 import os
@@ -267,7 +274,6 @@ def read_file(file_name, size):
 from pyecharts import options as opts
 from pyecharts.charts import Bar
 from pyecharts.render import make_snapshot
-
 from snapshot_selenium import snapshot
 
 #使用pyecharts画图，需要启用浏览器生成图片会很慢
