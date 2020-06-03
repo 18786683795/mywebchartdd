@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>数据可视化</title>
+  <!-- 引入 echarts.js -->
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://www.echartsjs.com/examples/vendors/echarts/echarts.min.js"></script>
+</head>
+<body>
+
+  <div class="col-xs-4" style="float:left;">  
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <h3>柱状图</h3>
+    <div id="main" style="width:500px;height:400px;"></div>
+    <h3>饼状图</h3>
+    <div id="main2" style="width:500px;height:400px;"></div>
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main'));
+
+  	     
+          function bindData(){
+                  $.ajax({
+                        async: true,
+                        type: "get",
+                        url: "http://127.0.0.1:9099/getJSON/",
+                        dataType: "json",
+                        success: function (data) {
+                                if(data){
+                          // 指定图表的配置项和数据
+                          var option = {
+                            xAxis: {
+                                type: 'category',
+                                data: []
+                            },
+                            yAxis: {
+                                type: 'value'
+                            },
+                            series: [{
+                                data: [],
+                                type: 'bar',
+				itemStyle: {        //柱子上方显示数值
+               			    normal: {
+                                       label: {
+                                           show: true, //开启显示
+                                           position: 'top', //在上方显示
+                                           textStyle: { //数值样式
+                                               color: 'black',
+                                               fontSize: 16
+                                           }
+                                        }
+                                     }
+                                }
+                            }]
+                          };
+
+                          // 使用刚指定的配置项和数据显示图表。
+                           option.xAxis.data =  data[0]; 
+                           option.series[0].data = data[1];
+                          myChart.setOption(option);
+                        	}
+  		},
+                        error: function (data) {
+                  	      console.log(data)
+                          alert('Error: ajax 请求出错！')
+                        }
+  		
+                      });
+          }
+          bindData();
+    </script>
+  
+  
+    <script type="text/javascript">
+      var myChart1 = echarts.init(document.getElementById('main2'));
+
+         
+          function bindData(){
+                  $.ajax({
+                        async: true,
+                        type: "get",
+                        url: "http://127.0.0.1:9099/getPie/",
+                        dataType: "json",
+                        success: function (data) {
+                                if(data){
+                          // 指定图表的配置项和数据
+                          var option = {
+			    tooltip : {
+
+        	            trigger: 'item',
+
+        	            formatter: "{a} <br/>{b} : {c} ({d}%)"
+
+    		            },
+                            
+
+                                
+                            series: [{
+                                data: data,
+                                type: 'pie',
+                                radius:'55%'
+                            }]
+                          };
+
+                          // 使用刚指定的配置项和数据显示图表。
+                           //option.series[name].data =  data[0]; 
+                           //option.series[value].data = data[1];
+                           myChart1.setOption(option);
+                          }
+      },
+                        error: function (data) {
+                          console.log(data)
+                          alert('Error: ajax 请求出错！')
+                        }
+      
+                      });
+          }
+          bindData();
+    </script>
+    </div>
+</body>
+</html>

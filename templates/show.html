@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>数据可视化</title>
+  <!-- 引入 echarts.js -->
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://www.echartsjs.com/examples/vendors/echarts/echarts.min.js"></script>
+</head>
+<body>
+  
+  
+
+  <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+  <div id="main" style="height:400px;"></div>
+  <script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+	     
+        function bindData(){
+                $.ajax({
+                      async: true,
+                      type: "get",
+                      url: "http://172.168.16.70:9099/getJSON/",
+                      dataType: "json",
+                      success: function (data) {
+                              if(data){
+                        // 指定图表的配置项和数据
+                        var option = {
+                          xAxis: {
+                              type: 'category',
+                              data: []
+                          },
+                          yAxis: {
+                              type: 'value'
+                          },
+                          series: [{
+                              data: [],
+                              type: 'bar'
+                          }]
+                        };
+
+                        // 使用刚指定的配置项和数据显示图表。
+                         option.xAxis.data =  data[0]; 
+                         option.series[0].data = data[1];
+                        myChart.setOption(option);
+                      	}
+		},
+                      error: function (data) {
+                	      console.log(data)
+                        alert('Error: ajax 请求出错！')
+                      }
+		
+                    });
+        }
+        bindData();
+  </script>
+</body>
+</html>

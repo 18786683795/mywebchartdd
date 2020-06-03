@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>贵阳市交通整体运行状况</title>
+    <script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <meta charset="utf-8">
+  <!-- 引入 echarts.js -->
+<!-- 引入样式 -->
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://www.echartsjs.com/examples/vendors/echarts/echarts.min.js"></script>
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <el-dialog :visible.sync="visible" title="Hello world">
+      <p>Try Element</p>
+    </el-dialog>
+  <div class="block">
+    <span class="demonstration">选择日期</span>
+    <el-date-picker
+      v-model="value1"
+      type="datetime"
+      placeholder="选择日期时间"
+	  @change="changetime"
+	  value-format="yyyy-MM-dd">
+    </el-date-picker>
+  </div>
+  </div>
+  <!-- import Vue before Element -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: function() {
+        return { visible: false ,
+	  value1: '',
+		}
+      },
+	  methods:{
+		changetime() {
+      const self = this
+			//alert(this.value1)
+      $.ajax({
+        url:"/getshouyes",
+        data: {
+        date: self.value1,            
+        },
+        dataType : "json",//数据格式 
+        type : "get",//请求方式
+        async : true,//是否异步请求
+        success : function(data) {  //如果请求成功，返回数据。
+          rq = data[0];
+          fl = data[1][1];
+          sp = data[2][1];
+          co = data[3][1];
+
+          document.getElementById("rq").innerHTML="日期:"+rq;
+          document.getElementById("fl").innerHTML="交通流量:"+fl;
+          document.getElementById("sp").innerHTML="平均速度:"+sp;
+          document.getElementById("co").innerHTML="拥堵指数:"+co;
+
+        },
+      })
+		}
+	  }
+    })
+  </script>
+
+<style>
+#rq,#fl,#sp,#co {font-size:30px;}
+#rq,#fl,#sp,#co {
+       /*关键点在于将两个元素设置为display：table-cell*/
+        display: table-cell;
+        vertical-align: center;
+        width: 35px;
+        height: 40px;
+    }
+
+      [title] {
+        display: table-cell;
+        vertical-align: center;
+        /*即使宽度设为2000px，元素的内容还是可以正常显示*/
+        width: 20%;
+        height: 30px;
+    }
+</style>
+<div class="sy" style="float:center;">
+<h3 title="rq1"></h3>
+<div id="rq"></div>
+<h3 title="fl1"></h3>
+<div id="fl"></div>
+<h3 title="sp1"></h3>
+<div id="sp"></div>
+<h3 title="co1"></h3>
+<div id="co"></div>
+</div>
+</script>
+</body>
+</html>
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>贵阳市交通整体运行状况</title>
+    <script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<style>
+div {font-size:30px;}
+      div {
+       /*关键点在于将两个元素设置为display：table-cell*/
+        display: table-cell;
+        vertical-align: center;
+        width: 40px;
+        height: 30px;
+    }
+
+      h3 {
+        display: table-cell;
+        vertical-align: center;
+        /*即使宽度设为2000px，元素的内容还是可以正常显示*/
+        width: 25%;
+        height: 30px;
+    }
+</style>
+<body>
+<h3 id="fl1"></h3>
+<div id="fl"></div>
+<h3 id="sp1"></h3>
+<div id="sp"></div>
+<h3 id="co1"></h3>
+<div id="co"></div>
+<script>
+$.ajax({
+  url:"/getshouyes",
+  dataType : "json",//数据格式 
+  type : "get",//请求方式
+  async : true,//是否异步请求
+  success : function(data) {  //如果请求成功，返回数据。
+    fl = data[0][1];
+    sp = data[1][1];
+    co = data[2][1];
+
+    document.getElementById("fl").innerHTML="交通流量:"+fl;
+    document.getElementById("sp").innerHTML="平均速度:"+sp;
+    document.getElementById("co").innerHTML="拥堵指数:"+co;
+
+  },
+})
+</script>
+</body>
+</html>
+

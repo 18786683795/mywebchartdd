@@ -1,0 +1,787 @@
+*** Starting uWSGI 2.0.18 (64bit) on [Thu Dec 26 06:49:51 2019] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-23) on 13 November 2019 15:16:24
+os: Linux-2.6.32-431.el6.x86_64 #1 SMP Fri Nov 22 03:15:09 UTC 2013
+nodename: master
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /root/DjangoProject/myweb
+writing pidfile to uwsgi.pid
+detected binary path: /opt/Anaconda/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/DjangoProject/myweb
+your processes number limit is 14733
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8002 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.0 (default, Jun 28 2018, 13:15:42)  [GCC 7.2.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x12ced20
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364600 bytes (356 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x12ced20 pid: 2649 (default app)
+mountpoint  already configured. skip.
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 2649)
+spawned uWSGI worker 1 (pid: 2650, cores: 1)
+spawned uWSGI worker 2 (pid: 2651, cores: 1)
+spawned uWSGI worker 3 (pid: 2652, cores: 1)
+spawned uWSGI worker 4 (pid: 2653, cores: 1)
+*** Stats server enabled on 127.0.0.1:9091 fd: 16 ***
+[pid: 2650|app: 0|req: 1/1] 172.168.16.13 () {48 vars in 1142 bytes} [Thu Dec 26 14:50:46 2019] GET /getHTML/ => generated 8833 bytes in 21 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 2650|app: 0|req: 2/2] 172.168.16.13 () {48 vars in 1085 bytes} [Thu Dec 26 14:50:47 2019] GET /getJSON => generated 0 bytes in 1 msecs (HTTP/1.1 301) 3 headers in 114 bytes (1 switches on core 0)
+[pid: 2650|app: 0|req: 3/3] 172.168.16.13 () {48 vars in 1083 bytes} [Thu Dec 26 14:50:47 2019] GET /getPie => generated 0 bytes in 0 msecs (HTTP/1.1 301) 3 headers in 113 bytes (1 switches on core 0)
+[pid: 2650|app: 0|req: 4/4] 172.168.16.13 () {48 vars in 1087 bytes} [Thu Dec 26 14:50:47 2019] GET /getJSON/ => generated 198 bytes in 523 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2650|app: 0|req: 5/5] 172.168.16.13 () {48 vars in 1087 bytes} [Thu Dec 26 14:50:48 2019] GET /getJSON/ => generated 198 bytes in 4 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2652|app: 0|req: 1/6] 172.168.16.13 () {48 vars in 1085 bytes} [Thu Dec 26 14:50:47 2019] GET /getPie/ => generated 346 bytes in 557 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2653|app: 0|req: 1/7] 172.168.16.13 () {48 vars in 1085 bytes} [Thu Dec 26 14:50:48 2019] GET /getPie/ => generated 346 bytes in 572 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2650|app: 0|req: 6/8] 172.168.16.13 () {48 vars in 1142 bytes} [Thu Dec 26 14:50:51 2019] GET /getHTML/ => generated 8833 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 2653|app: 0|req: 2/9] 172.168.16.13 () {48 vars in 1087 bytes} [Thu Dec 26 14:50:51 2019] GET /getJSON/ => generated 198 bytes in 4 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2650|app: 0|req: 7/10] 172.168.16.13 () {48 vars in 1085 bytes} [Thu Dec 26 14:50:51 2019] GET /getPie/ => generated 346 bytes in 4 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2650|app: 0|req: 8/11] 172.168.16.13 () {48 vars in 1087 bytes} [Thu Dec 26 14:50:51 2019] GET /getJSON/ => generated 198 bytes in 4 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2651|app: 0|req: 1/12] 172.168.16.13 () {48 vars in 1085 bytes} [Thu Dec 26 14:50:51 2019] GET /getPie/ => generated 346 bytes in 601 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2650|app: 0|req: 9/13] 172.168.16.13 () {48 vars in 1142 bytes} [Thu Dec 26 14:52:10 2019] GET /getHTML/ => generated 8833 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 2651|app: 0|req: 2/14] 172.168.16.13 () {48 vars in 1085 bytes} [Thu Dec 26 14:52:10 2019] GET /getPie/ => generated 346 bytes in 3 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2650|app: 0|req: 10/15] 172.168.16.13 () {48 vars in 1087 bytes} [Thu Dec 26 14:52:10 2019] GET /getJSON/ => generated 198 bytes in 7 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2651|app: 0|req: 3/16] 172.168.16.13 () {48 vars in 1085 bytes} [Thu Dec 26 14:52:10 2019] GET /getPie/ => generated 346 bytes in 7 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2651|app: 0|req: 4/17] 172.168.16.13 () {48 vars in 1087 bytes} [Thu Dec 26 14:52:10 2019] GET /getJSON/ => generated 198 bytes in 4 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+Thu Dec 26 14:56:26 2019 - *** /root/DjangoProject/myweb has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 2 (pid: 2651)...
+Gracefully killing worker 1 (pid: 2650)...
+Gracefully killing worker 3 (pid: 2652)...
+Gracefully killing worker 4 (pid: 2653)...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /root/DjangoProject/myweb
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (127.0.0.1:8002)
+running /opt/Anaconda/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Thu Dec 26 14:56:27 2019] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-23) on 13 November 2019 15:16:24
+os: Linux-2.6.32-431.el6.x86_64 #1 SMP Fri Nov 22 03:15:09 UTC 2013
+nodename: master
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /root/DjangoProject/myweb
+detected binary path: /opt/Anaconda/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/DjangoProject/myweb
+your processes number limit is 14733
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 127.0.0.1:8002 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.0 (default, Jun 28 2018, 13:15:42)  [GCC 7.2.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x1b27050
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364600 bytes (356 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1b27050 pid: 2649 (default app)
+mountpoint  already configured. skip.
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 2649)
+spawned uWSGI worker 1 (pid: 2727, cores: 1)
+spawned uWSGI worker 2 (pid: 2728, cores: 1)
+spawned uWSGI worker 3 (pid: 2729, cores: 1)
+spawned uWSGI worker 4 (pid: 2730, cores: 1)
+*** Stats server enabled on 127.0.0.1:9091 fd: 16 ***
+Thu Dec 26 14:56:35 2019 - *** /root/DjangoProject/myweb has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 4 (pid: 2730)...
+Gracefully killing worker 1 (pid: 2727)...
+Gracefully killing worker 2 (pid: 2728)...
+Gracefully killing worker 3 (pid: 2729)...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /root/DjangoProject/myweb
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (127.0.0.1:8002)
+running /opt/Anaconda/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Thu Dec 26 14:56:36 2019] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-23) on 13 November 2019 15:16:24
+os: Linux-2.6.32-431.el6.x86_64 #1 SMP Fri Nov 22 03:15:09 UTC 2013
+nodename: master
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /root/DjangoProject/myweb
+detected binary path: /opt/Anaconda/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/DjangoProject/myweb
+your processes number limit is 14733
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 127.0.0.1:8002 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.0 (default, Jun 28 2018, 13:15:42)  [GCC 7.2.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x20d3050
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364600 bytes (356 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x20d3050 pid: 2649 (default app)
+mountpoint  already configured. skip.
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 2649)
+spawned uWSGI worker 1 (pid: 2731, cores: 1)
+spawned uWSGI worker 2 (pid: 2732, cores: 1)
+spawned uWSGI worker 3 (pid: 2733, cores: 1)
+spawned uWSGI worker 4 (pid: 2734, cores: 1)
+*** Stats server enabled on 127.0.0.1:9091 fd: 16 ***
+[pid: 2732|app: 0|req: 1/1] 172.168.16.13 () {48 vars in 1142 bytes} [Thu Dec 26 14:59:17 2019] GET /getHTML/ => generated 8833 bytes in 23 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 2732|app: 0|req: 2/2] 172.168.16.13 () {48 vars in 1087 bytes} [Thu Dec 26 14:59:18 2019] GET /getJSON/ => generated 198 bytes in 503 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2733|app: 0|req: 1/3] 172.168.16.13 () {48 vars in 1085 bytes} [Thu Dec 26 14:59:18 2019] GET /getPie/ => generated 346 bytes in 545 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2733|app: 0|req: 2/4] 172.168.16.13 () {48 vars in 1085 bytes} [Thu Dec 26 14:59:18 2019] GET /getPie/ => generated 346 bytes in 6 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2734|app: 0|req: 1/5] 172.168.16.13 () {48 vars in 1087 bytes} [Thu Dec 26 14:59:18 2019] GET /getJSON/ => generated 198 bytes in 516 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+Thu Dec 26 15:54:44 2019 - *** /root/DjangoProject/myweb has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 4 (pid: 2734)...
+Gracefully killing worker 3 (pid: 2733)...
+Gracefully killing worker 1 (pid: 2731)...
+Gracefully killing worker 2 (pid: 2732)...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /root/DjangoProject/myweb
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (127.0.0.1:8002)
+running /opt/Anaconda/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Thu Dec 26 15:54:45 2019] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-23) on 13 November 2019 15:16:24
+os: Linux-2.6.32-431.el6.x86_64 #1 SMP Fri Nov 22 03:15:09 UTC 2013
+nodename: master
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /root/DjangoProject/myweb
+detected binary path: /opt/Anaconda/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/DjangoProject/myweb
+your processes number limit is 14733
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 127.0.0.1:8002 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.0 (default, Jun 28 2018, 13:15:42)  [GCC 7.2.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x1185050
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364600 bytes (356 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x1185050 pid: 2649 (default app)
+mountpoint  already configured. skip.
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 2649)
+spawned uWSGI worker 1 (pid: 2790, cores: 1)
+spawned uWSGI worker 2 (pid: 2791, cores: 1)
+spawned uWSGI worker 3 (pid: 2792, cores: 1)
+spawned uWSGI worker 4 (pid: 2793, cores: 1)
+*** Stats server enabled on 127.0.0.1:9091 fd: 16 ***
+Thu Dec 26 15:54:59 2019 - *** /root/DjangoProject/myweb has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 4 (pid: 2793)...
+Gracefully killing worker 1 (pid: 2790)...
+Gracefully killing worker 2 (pid: 2791)...
+Gracefully killing worker 3 (pid: 2792)...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /root/DjangoProject/myweb
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (127.0.0.1:8002)
+running /opt/Anaconda/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Thu Dec 26 15:55:00 2019] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-23) on 13 November 2019 15:16:24
+os: Linux-2.6.32-431.el6.x86_64 #1 SMP Fri Nov 22 03:15:09 UTC 2013
+nodename: master
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /root/DjangoProject/myweb
+detected binary path: /opt/Anaconda/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/DjangoProject/myweb
+your processes number limit is 14733
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 127.0.0.1:8002 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.0 (default, Jun 28 2018, 13:15:42)  [GCC 7.2.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x1d21050
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364600 bytes (356 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1d21050 pid: 2649 (default app)
+mountpoint  already configured. skip.
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 2649)
+spawned uWSGI worker 1 (pid: 2794, cores: 1)
+spawned uWSGI worker 2 (pid: 2795, cores: 1)
+spawned uWSGI worker 3 (pid: 2796, cores: 1)
+spawned uWSGI worker 4 (pid: 2797, cores: 1)
+*** Stats server enabled on 127.0.0.1:9092 fd: 16 ***
+Thu Dec 26 15:55:38 2019 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+*** Starting uWSGI 2.0.18 (64bit) on [Thu Dec 26 07:56:22 2019] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-23) on 13 November 2019 15:16:24
+os: Linux-2.6.32-431.el6.x86_64 #1 SMP Fri Nov 22 03:15:09 UTC 2013
+nodename: master
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /root/DjangoProject/myweb
+writing pidfile to uwsgi.pid
+detected binary path: /opt/Anaconda/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/DjangoProject/myweb
+your processes number limit is 14733
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8002 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.0 (default, Jun 28 2018, 13:15:42)  [GCC 7.2.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0xafed10
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364600 bytes (356 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0xafed10 pid: 2812 (default app)
+mountpoint  already configured. skip.
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 2812)
+spawned uWSGI worker 1 (pid: 2813, cores: 1)
+spawned uWSGI worker 2 (pid: 2814, cores: 1)
+spawned uWSGI worker 3 (pid: 2815, cores: 1)
+spawned uWSGI worker 4 (pid: 2816, cores: 1)
+*** Stats server enabled on 127.0.0.1:9092 fd: 16 ***
+[pid: 2816|app: 0|req: 1/1] 172.168.16.13 () {48 vars in 1142 bytes} [Fri Dec 27 09:40:32 2019] GET /getHTML/ => generated 8833 bytes in 120 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 2815|app: 0|req: 1/2] 172.168.16.13 () {48 vars in 1087 bytes} [Fri Dec 27 09:40:32 2019] GET /getJSON/ => generated 198 bytes in 1841 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2813|app: 0|req: 1/3] 172.168.16.13 () {48 vars in 1085 bytes} [Fri Dec 27 09:40:32 2019] GET /getPie/ => generated 346 bytes in 1864 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2815|app: 0|req: 2/4] 172.168.16.13 () {48 vars in 1087 bytes} [Fri Dec 27 09:40:34 2019] GET /getJSON/ => generated 198 bytes in 3 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2814|app: 0|req: 1/5] 172.168.16.13 () {48 vars in 1085 bytes} [Fri Dec 27 09:40:34 2019] GET /getPie/ => generated 346 bytes in 1059 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jan  3 02:54:38 2020] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-23) on 13 November 2019 15:16:24
+os: Linux-2.6.32-431.el6.x86_64 #1 SMP Fri Nov 22 03:15:09 UTC 2013
+nodename: master
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /root/DjangoProject/mywebchart
+writing pidfile to uwsgi.pid
+detected binary path: /opt/Anaconda/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/DjangoProject/myweb
+your processes number limit is 14733
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8002 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.0 (default, Jun 28 2018, 13:15:42)  [GCC 7.2.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x199dd20
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364600 bytes (356 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 14 seconds on interpreter 0x199dd20 pid: 2624 (default app)
+mountpoint  already configured. skip.
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 2624)
+spawned uWSGI worker 1 (pid: 2625, cores: 1)
+spawned uWSGI worker 2 (pid: 2626, cores: 1)
+spawned uWSGI worker 3 (pid: 2627, cores: 1)
+spawned uWSGI worker 4 (pid: 2628, cores: 1)
+*** Stats server enabled on 127.0.0.1:9092 fd: 16 ***
+[pid: 2628|app: 0|req: 1/1] 172.168.16.13 () {46 vars in 997 bytes} [Fri Jan  3 10:56:16 2020] GET /getHTML/ => generated 8833 bytes in 2028 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 2628|app: 0|req: 2/2] 172.168.16.13 () {46 vars in 933 bytes} [Fri Jan  3 10:56:24 2020] GET /favicon.ico => generated 3049 bytes in 326 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 2625|app: 0|req: 1/3] 172.168.16.13 () {48 vars in 973 bytes} [Fri Jan  3 10:56:24 2020] GET /getJSON/ => generated 198 bytes in 13145 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2626|app: 0|req: 1/4] 172.168.16.13 () {48 vars in 971 bytes} [Fri Jan  3 10:56:24 2020] GET /getPie/ => generated 346 bytes in 13195 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2625|app: 0|req: 2/5] 172.168.16.13 () {48 vars in 973 bytes} [Fri Jan  3 10:56:37 2020] GET /getJSON/ => generated 198 bytes in 48 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2626|app: 0|req: 2/6] 172.168.16.13 () {48 vars in 971 bytes} [Fri Jan  3 10:56:37 2020] GET /getPie/ => generated 346 bytes in 8 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2628|app: 0|req: 3/7] 172.168.16.13 () {46 vars in 997 bytes} [Fri Jan  3 11:01:07 2020] GET /getJSON/ => generated 198 bytes in 1402 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 2628|app: 0|req: 4/8] 172.168.16.13 () {48 vars in 1028 bytes} [Fri Jan  3 11:01:26 2020] GET /getJSON/ => generated 198 bytes in 11 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+...gracefully killing workers...
+Gracefully killing worker 2 (pid: 2626)...
+Gracefully killing worker 1 (pid: 2625)...
+Gracefully killing worker 3 (pid: 2627)...
+Gracefully killing worker 4 (pid: 2628)...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /root/DjangoProject/mywebchart
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (127.0.0.1:8002)
+running /opt/Anaconda/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jan  3 11:01:55 2020] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-23) on 13 November 2019 15:16:24
+os: Linux-2.6.32-431.el6.x86_64 #1 SMP Fri Nov 22 03:15:09 UTC 2013
+nodename: master
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /root/DjangoProject/mywebchart
+detected binary path: /opt/Anaconda/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/DjangoProject/myweb
+your processes number limit is 14733
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 127.0.0.1:8002 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.0 (default, Jun 28 2018, 13:15:42)  [GCC 7.2.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x1c34060
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364600 bytes (356 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1c34060 pid: 2624 (default app)
+mountpoint  already configured. skip.
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 2624)
+spawned uWSGI worker 1 (pid: 2712, cores: 1)
+spawned uWSGI worker 2 (pid: 2713, cores: 1)
+spawned uWSGI worker 3 (pid: 2714, cores: 1)
+spawned uWSGI worker 4 (pid: 2715, cores: 1)
+*** Stats server enabled on 127.0.0.1:9092 fd: 16 ***
+[pid: 2715|app: 0|req: 1/1] 172.168.16.13 () {48 vars in 1028 bytes} [Fri Jan  3 11:02:01 2020] GET /getJSON/ => generated 198 bytes in 464 msecs (HTTP/1.1 200) 3 headers in 101 bytes (1 switches on core 0)
+...gracefully killing workers...
+Gracefully killing worker 4 (pid: 2715)...
+Gracefully killing worker 1 (pid: 2712)...
+Gracefully killing worker 3 (pid: 2714)...
+Gracefully killing worker 2 (pid: 2713)...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /root/DjangoProject/mywebchart
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (127.0.0.1:8002)
+running /opt/Anaconda/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jan  3 11:05:27 2020] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-23) on 13 November 2019 15:16:24
+os: Linux-2.6.32-431.el6.x86_64 #1 SMP Fri Nov 22 03:15:09 UTC 2013
+nodename: master
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /root/DjangoProject/mywebchart
+detected binary path: /opt/Anaconda/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/DjangoProject/mywebchart
+your processes number limit is 14733
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8003 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.0 (default, Jun 28 2018, 13:15:42)  [GCC 7.2.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x247d480
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364600 bytes (356 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x247d480 pid: 2624 (default app)
+mountpoint  already configured. skip.
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 2624)
+spawned uWSGI worker 1 (pid: 2742, cores: 1)
+spawned uWSGI worker 2 (pid: 2743, cores: 1)
+spawned uWSGI worker 3 (pid: 2744, cores: 1)
+spawned uWSGI worker 4 (pid: 2745, cores: 1)
+*** Stats server enabled on 127.0.0.1:9093 fd: 16 ***
+Internal Server Error: /getJSON/
+Traceback (most recent call last):
+  File "/opt/Anaconda/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/opt/Anaconda/lib/python3.7/site-packages/django/core/handlers/base.py", line 111, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/opt/Anaconda/lib/python3.7/site-packages/django/urls/resolvers.py", line 491, in resolve
+    for pattern in self.url_patterns:
+  File "/opt/Anaconda/lib/python3.7/site-packages/django/utils/functional.py", line 37, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/opt/Anaconda/lib/python3.7/site-packages/django/urls/resolvers.py", line 533, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/opt/Anaconda/lib/python3.7/site-packages/django/utils/functional.py", line 37, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/opt/Anaconda/lib/python3.7/site-packages/django/urls/resolvers.py", line 526, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/opt/Anaconda/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "./myweb/urls.py", line 18, in <module>
+    from myapp import views
+  File "./myapp/views.py", line 13
+    ret = context.apply(str)]
+                            ^
+SyntaxError: invalid syntax
+[pid: 2745|app: 0|req: 1/1] 172.168.16.13 () {46 vars in 1012 bytes} [Fri Jan  3 11:05:59 2020] GET /getJSON/ => generated 101208 bytes in 1059 msecs (HTTP/1.1 500) 4 headers in 130 bytes (1 switches on core 0)
+Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/opt/Anaconda/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/opt/Anaconda/lib/python3.7/site-packages/django/utils/deprecation.py", line 90, in __call__
+    response = self.process_request(request)
+  File "/opt/Anaconda/lib/python3.7/site-packages/django/middleware/common.py", line 52, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/opt/Anaconda/lib/python3.7/site-packages/django/middleware/common.py", line 70, in should_redirect_with_slash
+    not is_valid_path(request.path_info, urlconf) and
+  File "/opt/Anaconda/lib/python3.7/site-packages/django/urls/base.py", line 157, in is_valid_path
+    resolve(path, urlconf)
+  File "/opt/Anaconda/lib/python3.7/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/opt/Anaconda/lib/python3.7/site-packages/django/urls/resolvers.py", line 491, in resolve
+    for pattern in self.url_patterns:
+  File "/opt/Anaconda/lib/python3.7/site-packages/django/utils/functional.py", line 37, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/opt/Anaconda/lib/python3.7/site-packages/django/urls/resolvers.py", line 533, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/opt/Anaconda/lib/python3.7/site-packages/django/utils/functional.py", line 37, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/opt/Anaconda/lib/python3.7/site-packages/django/urls/resolvers.py", line 526, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/opt/Anaconda/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "./myweb/urls.py", line 18, in <module>
+    from myapp import views
+  File "./myapp/views.py", line 13
+    ret = context.apply(str)]
+                            ^
+SyntaxError: invalid syntax
+[pid: 2745|app: 0|req: 2/2] 172.168.16.13 () {46 vars in 948 bytes} [Fri Jan  3 11:06:00 2020] GET /favicon.ico => generated 116531 bytes in 64 msecs (HTTP/1.1 500) 1 headers in 63 bytes (1 switches on core 0)
+...gracefully killing workers...
+Gracefully killing worker 2 (pid: 2743)...
+Gracefully killing worker 1 (pid: 2742)...
+Gracefully killing worker 3 (pid: 2744)...
+Gracefully killing worker 4 (pid: 2745)...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /root/DjangoProject/mywebchart
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (127.0.0.1:8003)
+running /opt/Anaconda/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jan  3 11:06:38 2020] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-23) on 13 November 2019 15:16:24
+os: Linux-2.6.32-431.el6.x86_64 #1 SMP Fri Nov 22 03:15:09 UTC 2013
+nodename: master
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /root/DjangoProject/mywebchart
+detected binary path: /opt/Anaconda/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/DjangoProject/mywebchart
+your processes number limit is 14733
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 127.0.0.1:8003 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.0 (default, Jun 28 2018, 13:15:42)  [GCC 7.2.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x1c9a070
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364600 bytes (356 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1c9a070 pid: 2624 (default app)
+mountpoint  already configured. skip.
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 2624)
+spawned uWSGI worker 1 (pid: 2766, cores: 1)
+spawned uWSGI worker 2 (pid: 2767, cores: 1)
+spawned uWSGI worker 3 (pid: 2768, cores: 1)
+spawned uWSGI worker 4 (pid: 2769, cores: 1)
+*** Stats server enabled on 127.0.0.1:9093 fd: 16 ***
+Internal Server Error: /getJSON/
+Traceback (most recent call last):
+  File "/opt/Anaconda/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/opt/Anaconda/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/opt/Anaconda/lib/python3.7/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./myapp/views.py", line 14, in getJSON
+    return HttpResponse(json.dumps(ret), content_type='application/json')
+  File "/opt/Anaconda/lib/python3.7/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/opt/Anaconda/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/opt/Anaconda/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/opt/Anaconda/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Series is not JSON serializable
+[pid: 2769|app: 0|req: 1/1] 172.168.16.13 () {48 vars in 1043 bytes} [Fri Jan  3 11:06:47 2020] GET /getJSON/ => generated 90608 bytes in 957 msecs (HTTP/1.1 500) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 2766|app: 0|req: 1/2] 172.168.16.13 () {46 vars in 948 bytes} [Fri Jan  3 11:06:48 2020] GET /favicon.ico => generated 3049 bytes in 23 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+*** Starting uWSGI 2.0.18 (64bit) on [Sun Mar  8 08:50:52 2020] ***
+compiled with version: 5.4.0 20160609 on 03 December 2019 11:37:40
+os: Linux-4.15.0-88-generic #88~16.04.1-Ubuntu SMP Wed Feb 12 04:19:15 UTC 2020
+nodename: spark
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /home/hadoop0/Django_P/Django_Echarts/KE/mywebchartdd
+writing pidfile to uwsgi.pid
+detected binary path: /home/hadoop0/anaconda3/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/hadoop0/Django_P/Django_Echarts/KE/mywebchart
+your processes number limit is 22854
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8003 fd 3
+Python version: 3.5.2 |Anaconda custom (64-bit)| (default, Jul  2 2016, 17:53:06)  [GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x116e580
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364520 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 13 seconds on interpreter 0x116e580 pid: 3858 (default app)
+mountpoint  already configured. skip.
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 3858)
+spawned uWSGI worker 1 (pid: 3869, cores: 1)
+spawned uWSGI worker 2 (pid: 3870, cores: 1)
+spawned uWSGI worker 3 (pid: 3871, cores: 1)
+spawned uWSGI worker 4 (pid: 3872, cores: 1)
+*** Stats server enabled on 127.0.0.1:9093 fd: 16 ***
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+Not Found: /getHTML/
+[pid: 3872|app: 0|req: 1/1] 127.0.0.1 () {46 vars in 928 bytes} [Sun Mar  8 01:06:52 2020] GET /getHTML/ => generated 2743 bytes in 104 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 3872|app: 0|req: 2/2] 127.0.0.1 () {46 vars in 899 bytes} [Sun Mar  8 01:06:52 2020] GET /favicon.ico => generated 2752 bytes in 10 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /FlowData
+[pid: 3872|app: 0|req: 3/3] 127.0.0.1 () {46 vars in 928 bytes} [Sun Mar  8 01:07:06 2020] GET /FlowData => generated 2743 bytes in 8 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3870|app: 0|req: 1/4] 127.0.0.1 () {46 vars in 934 bytes} [Sun Mar  8 01:07:15 2020] GET /getFlowData => generated 0 bytes in 11 msecs (HTTP/1.1 301) 3 headers in 118 bytes (1 switches on core 0)
+[pid: 3872|app: 0|req: 4/5] 127.0.0.1 () {46 vars in 936 bytes} [Sun Mar  8 01:07:15 2020] GET /getFlowData/ => generated 10588 bytes in 32 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 3872|app: 0|req: 5/6] 127.0.0.1 () {48 vars in 943 bytes} [Sun Mar  8 01:07:15 2020] GET /getflows => generated 0 bytes in 0 msecs (HTTP/1.1 301) 3 headers in 115 bytes (1 switches on core 0)
+[pid: 3872|app: 0|req: 6/7] 127.0.0.1 () {48 vars in 945 bytes} [Sun Mar  8 01:07:15 2020] GET /getflows/ => generated 8610 bytes in 1229 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3872|app: 0|req: 7/8] 127.0.0.1 () {48 vars in 945 bytes} [Sun Mar  8 01:07:16 2020] GET /getflows/ => generated 8610 bytes in 512 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3872|app: 0|req: 8/9] 127.0.0.1 () {48 vars in 945 bytes} [Sun Mar  8 01:07:17 2020] GET /getflows/ => generated 8610 bytes in 625 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3872|app: 0|req: 9/10] 127.0.0.1 () {48 vars in 945 bytes} [Sun Mar  8 01:07:18 2020] GET /getflows/ => generated 8610 bytes in 560 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3871|app: 0|req: 1/11] 127.0.0.1 () {48 vars in 945 bytes} [Sun Mar  8 01:07:18 2020] GET /getflows/ => generated 8610 bytes in 1381 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.18 (64bit) on [Sun Mar  8 09:11:28 2020] ***
+compiled with version: 5.4.0 20160609 on 03 December 2019 11:37:40
+os: Linux-4.15.0-88-generic #88~16.04.1-Ubuntu SMP Wed Feb 12 04:19:15 UTC 2020
+nodename: spark
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /home/hadoop0/Django_P/Django_Echarts/KE/mywebchartdd
+writing pidfile to uwsgi.pid
+detected binary path: /home/hadoop0/anaconda3/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/hadoop0/Django_P/Django_Echarts/KE/mywebchartdd
+your processes number limit is 22854
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8004 fd 3
+Python version: 3.5.2 |Anaconda custom (64-bit)| (default, Jul  2 2016, 17:53:06)  [GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x150a580
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364520 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x150a580 pid: 4409 (default app)
+mountpoint  already configured. skip.
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 4409)
+spawned uWSGI worker 1 (pid: 4412, cores: 1)
+spawned uWSGI worker 2 (pid: 4413, cores: 1)
+spawned uWSGI worker 3 (pid: 4414, cores: 1)
+spawned uWSGI worker 4 (pid: 4415, cores: 1)
+*** Stats server enabled on 127.0.0.1:9094 fd: 16 ***
+[pid: 4413|app: 0|req: 1/1] 127.0.0.1 () {46 vars in 942 bytes} [Sun Mar  8 01:11:46 2020] GET /getFlowData/ => generated 9194 bytes in 863 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 4412|app: 0|req: 1/2] 127.0.0.1 () {46 vars in 909 bytes} [Sun Mar  8 01:11:49 2020] GET /favicon.ico => generated 2767 bytes in 717 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 4415|app: 0|req: 1/4] 127.0.0.1 () {48 vars in 1058 bytes} [Sun Mar  8 01:12:02 2020] GET /getshouyes?date=2020-03-02&regional=%E5%8D%97%E6%98%8E%E5%8C%BA => generated 0 bytes in 734 msecs (HTTP/1.1 301) 3 headers in 170 bytes (1 switches on core 0)
+[pid: 4414|app: 0|req: 1/4] 127.0.0.1 () {48 vars in 1058 bytes} [Sun Mar  8 01:12:02 2020] GET /ajax_flows?date=2020-03-02&regional=%E5%8D%97%E6%98%8E%E5%8C%BA => generated 0 bytes in 735 msecs (HTTP/1.1 301) 3 headers in 170 bytes (1 switches on core 0)
+2020-03-2
+<QueryDict: {'date': ['2020-03-02'], 'regional': ['南明区']}>
+[pid: 4415|app: 0|req: 2/5] 127.0.0.1 () {48 vars in 1060 bytes} [Sun Mar  8 01:12:02 2020] GET /ajax_flows/?date=2020-03-02&regional=%E5%8D%97%E6%98%8E%E5%8C%BA => generated 44 bytes in 163 msecs (HTTP/1.1 200) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 4412|app: 0|req: 2/6] 127.0.0.1 () {48 vars in 1060 bytes} [Sun Mar  8 01:12:02 2020] GET /getshouyes/?date=2020-03-02&regional=%E5%8D%97%E6%98%8E%E5%8C%BA => generated 71 bytes in 255 msecs (HTTP/1.1 200) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 4414|app: 0|req: 2/7] 127.0.0.1 () {48 vars in 1058 bytes} [Sun Mar  8 01:12:13 2020] GET /getshouyes?date=2019-12-03&regional=%E5%8D%97%E6%98%8E%E5%8C%BA => generated 0 bytes in 0 msecs (HTTP/1.1 301) 3 headers in 170 bytes (1 switches on core 0)
+[pid: 4415|app: 0|req: 3/8] 127.0.0.1 () {48 vars in 1058 bytes} [Sun Mar  8 01:12:13 2020] GET /ajax_flows?date=2019-12-03&regional=%E5%8D%97%E6%98%8E%E5%8C%BA => generated 0 bytes in 1 msecs (HTTP/1.1 301) 3 headers in 170 bytes (1 switches on core 0)
+2019-12-3
+<QueryDict: {'date': ['2019-12-03'], 'regional': ['南明区']}>
+[pid: 4415|app: 0|req: 4/9] 127.0.0.1 () {48 vars in 1060 bytes} [Sun Mar  8 01:12:13 2020] GET /getshouyes/?date=2019-12-03&regional=%E5%8D%97%E6%98%8E%E5%8C%BA => generated 80 bytes in 74 msecs (HTTP/1.1 200) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 4413|app: 0|req: 2/10] 127.0.0.1 () {48 vars in 1060 bytes} [Sun Mar  8 01:12:13 2020] GET /ajax_flows/?date=2019-12-03&regional=%E5%8D%97%E6%98%8E%E5%8C%BA => generated 2042 bytes in 236 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 4415|app: 0|req: 5/11] 127.0.0.1 () {46 vars in 944 bytes} [Sun Mar  8 01:12:30 2020] GET /getSpeedData/ => generated 9171 bytes in 35 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 4413|app: 0|req: 3/12] 127.0.0.1 () {48 vars in 1061 bytes} [Sun Mar  8 01:12:40 2020] GET /ajax_speeds?date=2019-12-02&regional=%E5%8D%97%E6%98%8E%E5%8C%BA => generated 0 bytes in 1 msecs (HTTP/1.1 301) 3 headers in 171 bytes (1 switches on core 0)
+[pid: 4415|app: 0|req: 6/13] 127.0.0.1 () {48 vars in 1059 bytes} [Sun Mar  8 01:12:40 2020] GET /getshouyes?date=2019-12-02&regional=%E5%8D%97%E6%98%8E%E5%8C%BA => generated 0 bytes in 0 msecs (HTTP/1.1 301) 3 headers in 170 bytes (1 switches on core 0)
+[pid: 4414|app: 0|req: 3/14] 127.0.0.1 () {48 vars in 1061 bytes} [Sun Mar  8 01:12:40 2020] GET /getshouyes/?date=2019-12-02&regional=%E5%8D%97%E6%98%8E%E5%8C%BA => generated 79 bytes in 181 msecs (HTTP/1.1 200) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 4415|app: 0|req: 7/15] 127.0.0.1 () {48 vars in 1063 bytes} [Sun Mar  8 01:12:40 2020] GET /ajax_speeds/?date=2019-12-02&regional=%E5%8D%97%E6%98%8E%E5%8C%BA => generated 1925 bytes in 249 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+unlink(): No such file or directory [core/uwsgi.c line 1615]
