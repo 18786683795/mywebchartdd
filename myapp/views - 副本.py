@@ -296,12 +296,13 @@ from snapshot_selenium import snapshot
 import numpy as np
 import matplotlib.pyplot as plt
 
-t = np.arange(0, 69, 1)
-plt.plot(t, t, 'r', t, t**2, 'b')
-label = ['t', 't**2']
-plt.legend(label, loc='upper left')
-plt.savefig(img_name)
-#plt.show()
+def plt_fc():
+    t = np.arange(0, 69, 1)
+    plt.plot(t, t, 'r', t, t**2, 'b')
+    label = ['t', 't**2']
+    plt.legend(label, loc='upper left')
+    plt.savefig(img_name)
+    #plt.show()
 
 
 #报告生成接口
@@ -311,6 +312,8 @@ def generatereport(request):
     filepath = path_name
     template_path = os.getcwd() + '/test.docx'  #加载模板文件
     template = DocxTemplate(template_path)
+    if os.path.exists(img_name) == False:  #判断下面代码使用的图片是否存在，不存在则调用函数生成
+        plt_fc()
     context = {'text': '哈哈哈，来啦',
            't1':'燕子',
             't2':'杨柳',
@@ -351,10 +354,10 @@ def generatereport(request):
 def downloadreport(request):
     try:
         homedate = request.GET.get("date",'')
-        a1 = homedate[:10]
-        a = homedate[:8]+homedate[9] #构造前端传来的日期格式
-        report_na = a+".docx"
-        if os.path.exists(report_name):
+#        a1 = homedate[:8]+homedate[9] #构造前端传来的日期格式
+        a = homedate[:10]  #获取前端传来的日期格式
+        report_na = path_name+a+".docx"
+        if os.path.exists(report_na):
             data = {'code':200,'msg': 'success!','data':{'date':a,'path_name':path_name,'report_name':report_na}}
             return HttpResponse(json.dumps(data), content_type='application/json')
         else:

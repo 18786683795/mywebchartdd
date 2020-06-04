@@ -296,12 +296,13 @@ from snapshot_selenium import snapshot
 import numpy as np
 import matplotlib.pyplot as plt
 
-t = np.arange(0, 69, 1)
-plt.plot(t, t, 'r', t, t**2, 'b')
-label = ['t', 't**2']
-plt.legend(label, loc='upper left')
-plt.savefig(img_name)
-#plt.show()
+def plt_fc():
+    t = np.arange(0, 69, 1)
+    plt.plot(t, t, 'r', t, t**2, 'b')
+    label = ['t', 't**2']
+    plt.legend(label, loc='upper left')
+    plt.savefig(img_name)
+    #plt.show()
 
 
 #报告生成接口
@@ -311,6 +312,8 @@ def generatereport(request):
     filepath = path_name
     template_path = os.getcwd() + '/test.docx'  #加载模板文件
     template = DocxTemplate(template_path)
+    if os.path.exists(img_name) == False:  #判断下面代码使用的图片是否存在，不存在则调用函数生成
+        plt_fc()
     context = {'text': '哈哈哈，来啦',
            't1':'燕子',
             't2':'杨柳',
@@ -351,10 +354,10 @@ def generatereport(request):
 def downloadreport(request):
     try:
         homedate = request.GET.get("date",'')
-        a1 = homedate[:10]
-        a = homedate[:8]+homedate[9] #构造前端传来的日期格式
-        report_na = a+".docx"
-        if os.path.exists(report_name):
+#        a1 = homedate[:8]+homedate[9] #构造前端传来的日期格式
+        a = homedate[:10]  #获取前端传来的日期格式
+        report_na = path_name+a+".docx"
+        if os.path.exists(report_na):
             data = {'code':200,'msg': 'success!','data':{'date':a,'path_name':path_name,'report_name':report_na}}
             return HttpResponse(json.dumps(data), content_type='application/json')
         else:
@@ -363,18 +366,54 @@ def downloadreport(request):
         print(e)
         return HttpResponse('参数错误!')
     
+
+#生成报告的方法
+def generatereport0():
+    filename = report_name        # 所生成的word文档需要以.docx结尾，文档格式需要
+    filepath = path_name
+    template_path = os.getcwd() + '/test.docx'  #加载模板文件
+    template = DocxTemplate(template_path)
+    if os.path.exists(img_name) == False:  #判断下面代码使用的图片是否存在，不存在则调用函数生成
+        plt_fc()
+    context = {'text': '哈哈哈，来啦',
+           't1':'燕子',
+            't2':'杨柳',
+            't3':'桃花',
+            't4':'针尖',
+            't5':'头涔涔',
+            't6':'泪潸潸',
+            't7':'茫茫然',
+            't8':'伶伶俐俐',
+            'picture1': InlineImage(template, img_name, width=Mm(80), height=Mm(60)),}
+
+    user_labels = ['姓名', '年龄', '性别', '入学日期']
+    context['user_labels'] = user_labels
+    user_dict1 = {'number': 1, 'cols': ['林小熊', '27', '男', '2019-03-28']}
+    user_dict2 = {'number': 2, 'cols': ['林小花', '27', '女', '2019-03-28']}
+    user_list = []
+    user_list.append(user_dict1)
+    user_list.append(user_dict2)
+
+    context['user_list'] = user_list
+    template.render(context)
+    template.save(os.path.join(filepath,filename))
+
+   
+#调用生成报告的方法来生成报告的接口
+def generatereport1(request):
+    generatereport0()
+    filename = report_name        # 所生成的word文档需要以.docx结尾，文档格式需要
+
+    if os.path.exists(filename):
+        data = {'code':200,'msg': 'success!','report_name':filename}
+        return HttpResponse(json.dumps(data), content_type='application/json')
+    else:
+        return HttpResponse('报告生成失败!')   
     
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     
     
