@@ -228,12 +228,9 @@ from rest_framework.decorators import api_view
 from docxtpl import DocxTemplate
 from docxtpl import InlineImage
 from docx.shared import Mm, Inches, Pt
-
 from datetime import datetime
 
 path_name = "E:/GZ/Django/Django_API-1/DJangoDRF/mywebchartdd/"
-img_name = path_name+datetime.now().strftime("%Y-%m-%d")+".png"
-report_name = path_name+datetime.now().strftime("%Y-%m-%d")+".docx"
 
 
 #加载前端下载页面
@@ -296,7 +293,7 @@ from snapshot_selenium import snapshot
 import numpy as np
 import matplotlib.pyplot as plt
 
-def plt_fc():
+def plt_fc(img_name):
     t = np.arange(0, 69, 1)
     plt.plot(t, t, 'r', t, t**2, 'b')
     label = ['t', 't**2']
@@ -305,9 +302,12 @@ def plt_fc():
     #plt.show()
 
 
+'''
 #报告生成接口
+img_name = path_name+datetime.now().strftime("%Y-%m-%d")+".png"
+report_name = path_name+datetime.now().strftime("%Y-%m-%d")+".docx"
 #@api_view(['GET'])
-def generatereport(request):
+def generatereport0(request):
     filename = report_name        # 所生成的word文档需要以.docx结尾，文档格式需要
     filepath = path_name
     template_path = os.getcwd() + '/test.docx'  #加载模板文件
@@ -348,33 +348,20 @@ def generatereport(request):
         return HttpResponse(json.dumps(data), content_type='application/json')
     else:
         return HttpResponse('报告生成失败!')
+'''
 
-
-#报告下载接口
-def downloadreport(request):
-    try:
-        homedate = request.GET.get("date",'')
-#        a1 = homedate[:8]+homedate[9] #构造前端传来的日期格式
-        a = homedate[:10]  #获取前端传来的日期格式
-        report_na = path_name+a+".docx"
-        if os.path.exists(report_na):
-            data = {'code':200,'msg': 'success!','data':{'date':a,'path_name':path_name,'report_name':report_na}}
-            return HttpResponse(json.dumps(data), content_type='application/json')
-        else:
-            return HttpResponse('未找到该报告!')
-    except Exception as e:
-        print(e)
-        return HttpResponse('参数错误!')
-    
 
 #生成报告的方法
-def generatereport0():
-    filename = report_name        # 所生成的word文档需要以.docx结尾，文档格式需要
+def generatereport(d):
+#    filename = report_name        # 所生成的word文档需要以.docx结尾，文档格式需要
     filepath = path_name
+    img_name = path_name+d+".png"
+    filename = path_name+d+".docx"
+    
     template_path = os.getcwd() + '/test.docx'  #加载模板文件
     template = DocxTemplate(template_path)
     if os.path.exists(img_name) == False:  #判断下面代码使用的图片是否存在，不存在则调用函数生成
-        plt_fc()
+        plt_fc(img_name)
     context = {'text': '哈哈哈，来啦',
            't1':'燕子',
             't2':'杨柳',
@@ -400,18 +387,44 @@ def generatereport0():
 
    
 #调用生成报告的方法来生成报告的接口
-def generatereport1(request):
-    generatereport0()
-    filename = report_name        # 所生成的word文档需要以.docx结尾，文档格式需要
-
-    if os.path.exists(filename):
-        data = {'code':200,'msg': 'success!','report_name':filename}
-        return HttpResponse(json.dumps(data), content_type='application/json')
-    else:
-        return HttpResponse('报告生成失败!')   
+def generatereports(request):
+    try:
+        homedate = request.GET.get("date",'')
+#        a1 = homedate[:8]+homedate[9] #构造前端传来的日期格式
+        a = homedate[:10]  #获取前端传来的日期格式
+        report_na = path_name+a+".docx"
+        
+        if os.path.exists(report_na):
+            data = {'code':200,'msg': 'Report already exists!','report_name':report_na}
+            return HttpResponse(json.dumps(data), content_type='application/json')
+        elif os.path.exists(report_na) == False:
+            generatereport(a)
+            report_na1 = path_name+a+".docx"
+            data1 = {'code':200,'msg': 'Report generated successfully!','report_name':report_na1}
+            return HttpResponse(json.dumps(data1), content_type='application/json')
+        else:
+            return HttpResponse('报告生成失败！')
+    except Exception as e:
+        print(e)
+        return HttpResponse('参数错误!')   
     
     
-    
+#报告下载接口
+def queryreport(request):
+    try:
+        homedate = request.GET.get("date",'')
+#        a1 = homedate[:8]+homedate[9] #构造前端传来的日期格式
+        a = homedate[:10]  #获取前端传来的日期格式
+        report_na = path_name+a+".docx"
+        
+        if os.path.exists(report_na):
+            data = {'code':200,'msg': 'Report query successfully!','data':{'date':a,'path_name':path_name,'report_name':report_na}}
+            return HttpResponse(json.dumps(data), content_type='application/json')
+        else:
+            return HttpResponse('报告未找到！')
+    except Exception as e:
+        print(e)
+        return HttpResponse('参数错误!')   
     
 
     

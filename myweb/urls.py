@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.urls import path
 from myapp.views import ajax_flows,ajax_speeds,ajax_congests,getshouyes,getShouyeData,getFlowData,\
-getSpeedData,getCongestData,generatereport,downloadreport,generatereport0,generatereport1
+getSpeedData,getCongestData,generatereport0,queryreport,generatereport,generatereports
 from rest_framework.documentation import include_docs_urls
 from rest_framework.routers import DefaultRouter
 
@@ -40,8 +40,9 @@ urlpatterns = [
     path('getFlowData/',getFlowData),
     path('getSpeedData/',getSpeedData),
     path('getCongestData/',getCongestData),
-    path('generatereport1/', generatereport1),
-    path('downloadreport/', downloadreport),
+    path('generatereport0/', generatereport0),
+    path('generatereports/', generatereports),
+    path('queryreport/', queryreport),
 #    url(r'^', include(router.urls)),
 #    url(r'docs/', include_docs_urls(title="交通流量接口文档")),
 ]
@@ -50,37 +51,37 @@ urlpatterns = [
 
 
 #报告定时生成
-import datetime
-import threading
-import os
-import time
-
-path_name = "E:/GZ/Django/Django_API-1/DJangoDRF/mywebchartdd/"
-img_name = path_name+datetime.datetime.now().strftime("%Y-%m-%d")+".png"
-report_name = path_name+datetime.datetime.now().strftime("%Y-%m-%d")+".docx"
- 
-# 获取现在时间
-now_time = datetime.datetime.now()
-# 获取明天时间
-next_time = now_time #+ datetime.timedelta(days=+1)
-next_year = next_time.date().year
-next_month = next_time.date().month
-next_day = next_time.date().day
-# 获取明天3点时间
-next_time = datetime.datetime.strptime(str(next_year)+"-"+str(next_month)+"-"+str(next_day)+" 15:15:00", "%Y-%m-%d %H:%M:%S")
-# # 获取昨天时间
-# last_time = now_time + datetime.timedelta(days=-1)
- 
-# 获取距离明天3点时间，单位为秒
-timer_start_time = (next_time - now_time).total_seconds()
- 
- 
-#定时器,参数为(多少时间后执行，单位为秒，执行的方法)
-if os.path.exists(report_name) == False:
-    timer = threading.Timer(timer_start_time, generatereport0)
-    timer.start()
-else:
-    time.sleep(timer_start_time)
+#import datetime
+#import threading
+#import os
+#import time
+#
+#path_name = "E:/GZ/Django/Django_API-1/DJangoDRF/mywebchartdd/"
+#img_name = path_name+datetime.datetime.now().strftime("%Y-%m-%d")+".png"
+#report_name = path_name+datetime.datetime.now().strftime("%Y-%m-%d")+".docx"
+# 
+## 获取现在时间
+#now_time = datetime.datetime.now()
+## 获取明天时间
+#next_time = now_time #+ datetime.timedelta(days=+1)
+#next_year = next_time.date().year
+#next_month = next_time.date().month
+#next_day = next_time.date().day
+## 获取明天3点时间
+#next_time = datetime.datetime.strptime(str(next_year)+"-"+str(next_month)+"-"+str(next_day)+" 15:40:00", "%Y-%m-%d %H:%M:%S")
+## # 获取昨天时间
+## last_time = now_time + datetime.timedelta(days=-1)
+# 
+## 获取距离明天3点时间，单位为秒
+#timer_start_time = (next_time - now_time).total_seconds()
+# 
+# 
+##定时器,参数为(多少时间后执行，单位为秒，执行的方法)
+#if os.path.exists(report_name) == False: 
+#    timer = threading.Timer(timer_start_time, generatereport0)
+#    timer.start()
+#else:
+#    time.sleep(timer_start_time)
 
 
 
