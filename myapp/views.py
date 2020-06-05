@@ -430,21 +430,26 @@ def generatereports(request):
         homedate = request.GET.get("date",'')
 #        a1 = homedate[:8]+homedate[9] #构造前端传来的日期格式
         a = homedate[:10]  #获取前端传来的日期格式
-        report_na = path_name+a+".docx"
-        
-        if os.path.exists(report_na):
-            data = {'code':200,'msg': 'Report already exists!','report_name':report_na}
-            return HttpResponse(json.dumps(data), content_type='application/json')
-        elif os.path.exists(report_na) == False:
-            generatereport(a)
-            report_na1 = path_name+a+".docx"
-            data1 = {'code':200,'msg': 'Report generated successfully!','report_name':report_na1}
-            return HttpResponse(json.dumps(data1), content_type='application/json')
+        if len(a) == 10:
+            report_na = path_name+a+".docx"
+            
+            if os.path.exists(report_na):
+                data = {'code':200,'msg': 'Report already exists!','report_name':report_na}
+                return HttpResponse(json.dumps(data), content_type='application/json')
+            elif os.path.exists(report_na) == False:
+                generatereport(a)
+                report_na1 = path_name+a+".docx"
+                data1 = {'code':200,'msg': 'Report generated successfully!','report_name':report_na1}
+                return HttpResponse(json.dumps(data1), content_type='application/json')
+            else:
+                return HttpResponse('报告生成失败！')
+        elif (len(a) > 0 and len(a) < 10) or len(a) > 10:
+            return HttpResponse('参数非法!') 
         else:
-            return HttpResponse('报告生成失败！')
+            return HttpResponse('请传入参数!') 
     except Exception as e:
         print(e)
-        return HttpResponse('参数错误!')   
+        return HttpResponse('请传入参数!')   
     
     
 #报告查询接口
@@ -453,23 +458,28 @@ def queryreport(request):
         homedate = request.GET.get("date",'')
 #        a1 = homedate[:8]+homedate[9] #构造前端传来的日期格式
         a = homedate[:10]  #获取前端传来的日期格式
-        report_na = path_name+a+".docx"
-        report_nm = a+".docx"
-        
-        if os.path.exists(report_na):
-            data = {'code':200,'msg': 'Report query successfully!','data':{'date':a,'path_name':path_name,'report_name':report_nm}}
-            #报告信息插入数据库
-#            engine = create_engine("mysql+pymysql://root:123456@52.1.123.6:3306/keenIts?charset=utf8")
-#            report_df = pd.DataFrame(data['data'])
-#            report_df.columns = ['date','path','name']
-#            report_df['create_time'] = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-#            report_df.to_sql('t_its_keen_report',engine,schema='Its_Report',if_exists='append',index=False,index_label=False)
-            return HttpResponse(json.dumps(data), content_type='application/json')
+        if len(a) == 10:
+            report_na = path_name+a+".docx"
+            report_nm = a+".docx"
+            
+            if os.path.exists(report_na):
+                data = {'code':200,'msg': 'Report query successfully!','data':{'date':a,'path_name':path_name,'report_name':report_nm}}
+                #报告信息插入数据库
+    #            engine = create_engine("mysql+pymysql://root:123456@52.1.123.6:3306/keenIts?charset=utf8")
+    #            report_df = pd.DataFrame(data['data'])
+    #            report_df.columns = ['date','path','name']
+    #            report_df['create_time'] = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    #            report_df.to_sql('t_its_keen_report',engine,schema='Its_Report',if_exists='append',index=False,index_label=False)
+                return HttpResponse(json.dumps(data), content_type='application/json')
+            else:
+                return HttpResponse('报告未找到！')
+        elif (len(a) > 0 and len(a) < 10) or len(a) > 10:
+            return HttpResponse('参数非法!') 
         else:
-            return HttpResponse('报告未找到！')
+            return HttpResponse('请传入参数!') 
     except Exception as e:
         print(e)
-        return HttpResponse('参数错误!')   
+        return HttpResponse('请传入参数!')   
     
 
     
