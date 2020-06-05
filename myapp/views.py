@@ -351,6 +351,42 @@ def generatereport0(request):
 '''
 
 
+#定时调用生成报告的方法，只能生成当天的报告
+img_name = path_name+datetime.now().strftime("%Y-%m-%d")+".png"
+report_name = path_name+datetime.now().strftime("%Y-%m-%d")+".docx"
+
+def generatereport_ds():
+    filename = report_name        # 所生成的word文档需要以.docx结尾，文档格式需要
+    filepath = path_name
+    
+    template_path = os.getcwd() + '/test.docx'  #加载模板文件
+    template = DocxTemplate(template_path)
+    if os.path.exists(img_name) == False:  #判断下面代码使用的图片是否存在，不存在则调用函数生成
+        plt_fc(img_name)
+    context = {'text': '哈哈哈，来啦',
+           't1':'燕子',
+            't2':'杨柳',
+            't3':'桃花',
+            't4':'针尖',
+            't5':'头涔涔',
+            't6':'泪潸潸',
+            't7':'茫茫然',
+            't8':'伶伶俐俐',
+            'picture1': InlineImage(template, img_name, width=Mm(80), height=Mm(60)),}
+
+    user_labels = ['姓名', '年龄', '性别', '入学日期']
+    context['user_labels'] = user_labels
+    user_dict1 = {'number': 1, 'cols': ['林小熊', '27', '男', '2019-03-28']}
+    user_dict2 = {'number': 2, 'cols': ['林小花', '27', '女', '2019-03-28']}
+    user_list = []
+    user_list.append(user_dict1)
+    user_list.append(user_dict2)
+
+    context['user_list'] = user_list
+    template.render(context)
+    template.save(os.path.join(filepath,filename))
+    
+
 #生成报告的方法
 def generatereport(d):
 #    filename = report_name        # 所生成的word文档需要以.docx结尾，文档格式需要
@@ -409,7 +445,7 @@ def generatereports(request):
         return HttpResponse('参数错误!')   
     
     
-#报告下载接口
+#报告查询接口
 def queryreport(request):
     try:
         homedate = request.GET.get("date",'')
