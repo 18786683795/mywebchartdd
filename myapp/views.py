@@ -3,9 +3,11 @@ from django.shortcuts import render
 from django.http import JsonResponse,HttpResponse
 from django.core import serializers
 import datetime
+import time
 import json
 import pymysql
 import pandas as pd
+from sqlalchemy import create_engine
 
 #conn_SY = pymysql.connect(host="172.168.16.249",user="keen",password="keen123456",database="keen_its",charset="utf8")
 #conn_FL = pymysql.connect(host="172.168.16.249",user="keen",password="keen123456",database="keen_its",charset="utf8")
@@ -452,9 +454,16 @@ def queryreport(request):
 #        a1 = homedate[:8]+homedate[9] #构造前端传来的日期格式
         a = homedate[:10]  #获取前端传来的日期格式
         report_na = path_name+a+".docx"
+        report_nm = a+".docx"
         
         if os.path.exists(report_na):
-            data = {'code':200,'msg': 'Report query successfully!','data':{'date':a,'path_name':path_name,'report_name':report_na}}
+            data = {'code':200,'msg': 'Report query successfully!','data':{'date':a,'path_name':path_name,'report_name':report_nm}}
+            #报告信息插入数据库
+#            engine = create_engine("mysql+pymysql://root:123456@52.1.123.6:3306/keenIts?charset=utf8")
+#            report_df = pd.DataFrame(data['data'])
+#            report_df.columns = ['date','path','name']
+#            report_df['create_time'] = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+#            report_df.to_sql('t_its_keen_report',engine,schema='Its_Report',if_exists='append',index=False,index_label=False)
             return HttpResponse(json.dumps(data), content_type='application/json')
         else:
             return HttpResponse('报告未找到！')
